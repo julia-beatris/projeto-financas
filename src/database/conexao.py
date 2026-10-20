@@ -4,7 +4,6 @@ class Conexao:
     def __init__(self):
         pass
 
-
     @staticmethod
     def conectar ():
 
@@ -16,7 +15,7 @@ class Conexao:
                                             password="root",
                                             database= "projeto_financa")
 
-            cursor = Conexao().cursor()
+            cursor = conexao.cursor()
 
             return  conexao, cursor
         except Exception as e: 
