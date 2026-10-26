@@ -30,7 +30,7 @@ class Categoria:
                         
     @staticmethod
     
-    def recuperar (categoria:str, login:str) -> int:
+    def recuperar ( login:str) -> list:
             conexao,cursor = Conexao().conectar()
             if conexao == None:
                             print("Erro ao tentar conectar!!")
@@ -38,15 +38,37 @@ class Categoria:
     
             try:
                 cursor.execute(""" SELECT categoria, login from tb_categoria
-                                   WHERE categoria = %s
-                                   AND login = %s
+                                   WHERE login = %s
+                                  
                                         """,
-                                        [categoria, login ])
+                                        [login ])
     
-                conexao.commit()
+                resultado= cursor.fetchall()
                 conexao.close()
-                return True
+                return resultado
             except Exception as e :
                 print(f"ERRO AO INSERIR{e}")        
                 return False
+
+
+    @staticmethod
+
+    def excluir (id_categoria:str) -> bool:
+        conexao,cursor =Conexao().conectar()
+        if conexao == None:
+                                    print("Erro ao tentar conectar!!")
+                                    return False
+
+        try:
+            cursor.execute("""  DELETE FROM tb_categoria
+                                WHERE id_categoria =%s
+                                                """,
+                                        [id_categoria])
+            
+            conexao.commit()
+            conexao.close()
+            return True
+        except Exception as e :
+            print(f"ERRO AO INSERIR{e}")        
+            return False
 
