@@ -9,7 +9,7 @@ CREATE TABLE if not exists tb_usuario (
 
 CREATE TABLE if not exists tb_categoria (
  id_categoria INT NOT NULL PRIMARY KEY auto_increment,
- nome VARCHAR(25),
+ categoria VARCHAR(25),
  login VARCHAR(15)
 );
 
