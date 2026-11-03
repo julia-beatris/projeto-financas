@@ -1,3 +1,3 @@
-from src.model.categoria import Categoria
+from model.categoria_model import Categoria
 id_categoria= Categoria().excluir(3)
 
