@@ -20,7 +20,7 @@ CREATE TABLE if not exists tb_despesa (
  data DATE,
  hora TIME(4),
  valor FLOAT(4),
- decricao VARCHAR(50),
+ descricao VARCHAR(50),
  tipo VARCHAR(15),
  login VARCHAR(15) NOT NULL,
  id_categoria INT
