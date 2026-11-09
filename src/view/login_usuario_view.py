@@ -7,7 +7,7 @@ class UsuarioLoginView(ft.View):
         self.pagina= pagina
         self.route = "/login"
         self.vertical_alignment="CENTER"
-        self.horizontal_alignment= "CENTER "
+        self.horizontal_alignment= "CENTER"
         self.title = "feito por julia"
         # Define a cor de fundo da página
         self.bgcolor = "#e8ecf0"
