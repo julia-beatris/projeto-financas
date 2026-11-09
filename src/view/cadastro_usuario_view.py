@@ -2,8 +2,10 @@ import flet as ft
 from src.model.usuario_model import Usuario
 
 class CadastroUsuarioView(ft.View):
-    def __init__(self,page:ft.Page):
+    def __init__(self,pagina:ft.Page):
         super().__init__()
+
+        self.pagina= pagina
 
         self.vertical_alignment="CENTER"
         
@@ -58,7 +60,19 @@ class CadastroUsuarioView(ft.View):
         usuario= self.campo_usuario.value
         senha= self.campo_senha.value
 
-        if Usuario().cadastrar(usuario,senha):
+        resultado= Usuario().cadastrar(usuario,senha)
+
+        if resultado == True:
+            self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Cadastro efetuado com sucesso!!",color="#000000"),bgcolor="#befacb"))
+
+        else:
+            self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Erro ao cadastrar.Entre em contato com o adiministrador!",color="#000000"),bgcolor="#ffb2b2"))
+
+
+
+            
+
+
             
 
         
