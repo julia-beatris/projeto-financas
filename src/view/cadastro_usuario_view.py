@@ -60,15 +60,21 @@ class CadastroUsuarioView(ft.View):
         usuario= self.campo_usuario.value
         senha= self.campo_senha.value
 
+        if usuario == "" or senha== "":
+            self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Preencha todos os campos!!",color="#000000"),bgcolor="#edfabe"))
+            return
+            
+
         resultado= Usuario().cadastrar(usuario,senha)
 
         if resultado == True:
             self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Cadastro efetuado com sucesso!!",color="#000000"),bgcolor="#befacb"))
 
         else:
-            self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Erro ao cadastrar.Entre em contato com o adiministrador!",color="#000000"),bgcolor="#ffb2b2"))
+            self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Erro ao cadastrar.Entre em contato com o adiministrador!!",color="#000000"),bgcolor="#ffb2b2"))
 
-
+    def ir_para_login():
+        
 
             
 
