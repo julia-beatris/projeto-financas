@@ -20,4 +20,17 @@ class PrincipalUsuarioView(ft.View):
         
         # Centraliza os componentes horizontalmente
         self.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+
+        self.controls = [titulo]
+
+
+
+
+
+
+
+
+
+
+
         

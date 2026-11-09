@@ -27,7 +27,7 @@ def main(pagina:ft.Page):
 
    pagina.on_route_change = roteamento
    roteamento()
-   pagina.views.append(tela_cadastro_usuario)
+   pagina.views.append(tela_login_usuario)
 
 
 

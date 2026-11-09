@@ -59,7 +59,7 @@ class UsuarioLoginView(ft.View):
         self.controls=[titulo, subtitulo,self.campo_usuario, 
                         self.campo_senha, botao_logar, botao_cadastrar]
 
-    def logar(self):
+    async def logar(self):
             usuario= self.campo_usuario.value
             senha= self.campo_senha.value
 
@@ -70,13 +70,17 @@ class UsuarioLoginView(ft.View):
                 return 
 
             
-            if resultado == True:
-                self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Cadastro efetuado com sucesso!!",color="#000000"),bgcolor="#befacb"))
+            if resultado:
+                self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Login efetuado com sucesso!!",color="#000000"),bgcolor="#befacb"))
+                await self.ir_para_pagina_principal()
             
             else:
-                self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Erro ao cadastrar.Entre em contato com o adiministrador!!",color="#000000"),bgcolor="#ffb2b2"))
+                self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Erro ao fazer o login.Entre em contato com o adiministrador!!",color="#000000"),bgcolor="#ffb2b2"))
             
         
     async def ir_para_cadastro(self):
         await self.pagina.push_route("/cadastro")
+
+    async def ir_para_pagina_principal(self):
+        await self.pagina.push_route("/principal")
 
