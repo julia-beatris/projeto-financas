@@ -4,10 +4,15 @@ from src.view.login_usuario_view import UsuarioLoginView
 from src.view.principal_usuario_view import PrincipalUsuarioView
 
 def main(pagina:ft.Page):
+   ALTURA = 600
+   LARGURA = 500
 
    pagina.title = "feito por julia;)"
-   pagina.window.height = 600 #alterando a altura da janela
-   pagina.window.width= 500 #alterando a largura da janela
+   pagina.window.height = ALTURA #alterando a altura da janela
+   pagina.window.width= LARGURA #alterando a largura da janela
+   pagina.window.left = 1920/2 - LARGURA/2
+   pagina.window.top = 1080/2 - ALTURA/2
+   
 
    tela_login_usuario = UsuarioLoginView(pagina)
    tela_cadastro_usuario = CadastroUsuarioView(pagina)
@@ -22,6 +27,7 @@ def main(pagina:ft.Page):
          pagina.views.append(tela_login_usuario)
       elif pagina.route == "/principal":
          pagina.views.append(tela_principal_usuario)
+         pagina.window.maximized= True
 
       pagina.update()
 
