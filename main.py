@@ -42,54 +42,57 @@ def main(pagina:ft.Page):
                               on_change=navegacao)
    
 
-   tela_login_usuario = UsuarioLoginView(pagina)
-   tela_cadastro_usuario = CadastroUsuarioView(pagina)
+   
+  
 
-   tela_principal_usuario = PrincipalUsuarioView(pagina)
-   tela_principal_usuario.navigation_bar=barra_navegacao
-
-   tela_categoria = CategoriaView(pagina)
-   tela_categoria.navigation_bar=barra_navegacao
-
-   tela_adicionar_despesas = AdicionarDespesasView(pagina)
-   tela_adicionar_despesas.navigation_bar=barra_navegacao
-
-   tela_todas_despesas = TodasDespesasView(pagina)
-   tela_todas_despesas.navigation_bar=barra_navegacao
-
+  
+   
+   
    tela_despesas_categoria = DespesasCategoriaView (pagina)
    tela_despesas_categoria.navigation_bar=barra_navegacao
  
    def roteamento(e= None):
       pagina.views.clear()
       if pagina.route == "/cadastro":
+         tela_cadastro_usuario = CadastroUsuarioView(pagina)
          pagina.views.append(tela_cadastro_usuario)
 
       elif pagina.route == "/login":
+         tela_login_usuario = UsuarioLoginView(pagina)
          pagina.views.append(tela_login_usuario)
 
       elif pagina.route == "/principal":
+         tela_principal_usuario = PrincipalUsuarioView(pagina)
+         tela_principal_usuario.navigation_bar=barra_navegacao
          pagina.views.append(tela_principal_usuario)
 
          pagina.window.maximized= True
       elif pagina.route == "/categoria":
-               pagina.views.append(tela_categoria) 
+         tela_categoria = CategoriaView(pagina)
+         tela_categoria.navigation_bar=barra_navegacao
+         pagina.views.append(tela_categoria) 
 
       elif pagina.route == "/adicionardespesas":
-            pagina.views.append(tela_adicionar_despesas) 
+         tela_adicionar_despesas = AdicionarDespesasView(pagina)
+         tela_adicionar_despesas.navigation_bar=barra_navegacao
+         pagina.views.append(tela_adicionar_despesas) 
 
       elif pagina.route == "/despesastotais":
-            pagina.views.append(tela_todas_despesas)   
+         tela_todas_despesas = TodasDespesasView(pagina)
+         tela_todas_despesas.navigation_bar=barra_navegacao
+         pagina.views.append(tela_todas_despesas)   
        
       elif pagina.route == "/despesascategoria":
-            pagina.views.append(tela_despesas_categoria)   
+         tela_despesas_categoria = DespesasCategoriaView (pagina)
+         tela_despesas_categoria.navigation_bar=barra_navegacao
+         pagina.views.append(tela_despesas_categoria)   
        
        
       pagina.update()
 
    pagina.on_route_change = roteamento
    roteamento()
-   pagina.views.append(tela_login_usuario)
+   pagina.navigate("/login")
 
 
 

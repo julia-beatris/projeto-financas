@@ -6,12 +6,16 @@ class PrincipalUsuarioView(ft.View):
         self.pagina= pagina
         self.route = "/principal"
         self.vertical_alignment="CENTER"
-        
-        
-        
 
-        titulo= ft.Text(value="PAGINA PRINCIPAL(VOU FORMATAR DEPOIS!!!)",weight="bold",font_family="arial")
-       
+        dados_usuario = pagina.session.store.get("usuario_logado")
+        nome_usuario = dados_usuario.get("usuario")
+        
+        titulo= ft.Text(value=f"""
+        Seja muito bem-vindo{nome_usuario}!É um prazer ter você aqui!Nosso site foi criado pensando em você, para oferecer a melhor experiência, com qualidade, dedicação e confiança.
+        Explore nossos conteúdos, conheça nossas novidades e fique à vontade para descobrir tudo o que preparamos especialmente para você.
+        Sua presença é muito importante para nós. Aproveite e sinta-se em casa! """,
+                            weight="bold",font_family="arial",)
+                        
                 
     
         self.title = "feito por julia"
