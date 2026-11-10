@@ -9,7 +9,7 @@ class CadastroUsuarioView(ft.View):
         self.route= "/"
 
         self.vertical_alignment="CENTER"
-        
+        logo=ft.Image("documents/LOGO SITE.png",width=500,height=200)
         titulo= ft.Text(value="Criar nova conta",weight="bold",font_family="arial")
         subtitulo= ft.Text(value="Preencha os dados abaixo:")
         
@@ -55,7 +55,7 @@ class CadastroUsuarioView(ft.View):
                             )
 
 
-        self.controls=[titulo, subtitulo,self.campo_usuario, 
+        self.controls=[logo,titulo, subtitulo,self.campo_usuario, 
                         self.campo_senha, botao_cadastrar,botao_login]
 
         

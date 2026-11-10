@@ -9,12 +9,13 @@ class PrincipalUsuarioView(ft.View):
 
         dados_usuario = pagina.session.store.get("usuario_logado")
         nome_usuario = dados_usuario.get("login")
-        
+
+        logo=ft.Image("documents/LOGO SITE.png")
         titulo= ft.Text(value=f"""
         Seja muito bem-vindo {nome_usuario} !É um prazer ter você aqui!Nosso site foi criado pensando em você, para oferecer a melhor experiência, com qualidade, dedicação e confiança.
         Explore nossos conteúdos, conheça nossas novidades e fique à vontade para descobrir tudo o que preparamos especialmente para você.
         Sua presença é muito importante para nós. Aproveite e sinta-se em casa! """,
-                            weight="bold",font_family="georgia",size=20)
+                            weight="bold",font_family="georgia",size=15)
                         
                 
     
@@ -25,7 +26,7 @@ class PrincipalUsuarioView(ft.View):
         # Centraliza os componentes horizontalmente
         self.horizontal_alignment = ft.CrossAxisAlignment.CENTER
 
-        self.controls = [titulo]
+        self.controls = [logo,titulo]
 
 
 

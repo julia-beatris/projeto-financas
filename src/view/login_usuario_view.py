@@ -9,7 +9,7 @@ class UsuarioLoginView(ft.View):
         self.route= "/login"
         
         self.vertical_alignment="CENTER"
-                
+        logo=ft.Image("documents/LOGO SITE.png",width=500,height=200)
         titulo= ft.Text(value="Faça seu login!",weight="bold",font_family="arial")
         subtitulo= ft.Text(value="Preencha os dados abaixo:")
                 
@@ -56,7 +56,7 @@ class UsuarioLoginView(ft.View):
                                     )
 
         
-        self.controls=[titulo, subtitulo,self.campo_usuario, 
+        self.controls=[logo,titulo, subtitulo,self.campo_usuario, 
                         self.campo_senha, botao_logar, botao_cadastrar]
 
     async def logar(self):

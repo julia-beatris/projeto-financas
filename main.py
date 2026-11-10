@@ -41,15 +41,6 @@ def main(pagina:ft.Page):
                               ft.NavigationBarDestination(icon=ft.Icons.LOGOUT_OUTLINED, label="Sair"),],
                               on_change=navegacao)
    
-
-   
-  
-
-  
-   
-   
-   tela_despesas_categoria = DespesasCategoriaView (pagina)
-   tela_despesas_categoria.navigation_bar=barra_navegacao
  
    def roteamento(e= None):
       pagina.views.clear()
