@@ -25,11 +25,11 @@ def main(pagina:ft.Page):
       if item_clicado == 0:
          pagina.navigate("/categoria")
       elif item_clicado == 1:
-         pagina.navigate("/")
+         pagina.navigate("/adicionardespesas")
       elif item_clicado == 2:
-         pagina.navigate("/")
+         pagina.navigate("/despesastotais")
       elif item_clicado == 3:
-         pagina.navigate("/")
+         pagina.navigate("/despesascategoria")
       elif item_clicado == 4:
          pagina.navigate("/login")
 
