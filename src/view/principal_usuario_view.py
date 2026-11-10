@@ -8,13 +8,13 @@ class PrincipalUsuarioView(ft.View):
         self.vertical_alignment="CENTER"
 
         dados_usuario = pagina.session.store.get("usuario_logado")
-        nome_usuario = dados_usuario.get("usuario")
+        nome_usuario = dados_usuario.get("login")
         
         titulo= ft.Text(value=f"""
-        Seja muito bem-vindo{nome_usuario}!É um prazer ter você aqui!Nosso site foi criado pensando em você, para oferecer a melhor experiência, com qualidade, dedicação e confiança.
+        Seja muito bem-vindo {nome_usuario} !É um prazer ter você aqui!Nosso site foi criado pensando em você, para oferecer a melhor experiência, com qualidade, dedicação e confiança.
         Explore nossos conteúdos, conheça nossas novidades e fique à vontade para descobrir tudo o que preparamos especialmente para você.
         Sua presença é muito importante para nós. Aproveite e sinta-se em casa! """,
-                            weight="bold",font_family="georgia",)
+                            weight="bold",font_family="georgia",size=20)
                         
                 
     
