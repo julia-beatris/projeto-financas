@@ -70,8 +70,9 @@ class UsuarioLoginView(ft.View):
                 return 
 
             
-            if resultado:
+            if resultado: 
                 self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Login efetuado com sucesso!!",color="#000000"),bgcolor="#befacb"))
+                self.pagina.session.store.set("usuario_logado",resultado)
                 await self.ir_para_pagina_principal()
             
             else:
