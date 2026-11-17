@@ -37,7 +37,7 @@ class Categoria:
                             return False
     
             try:
-                cursor.execute(""" SELECT categoria, login from tb_categoria
+                cursor.execute(""" SELECT categoria, login, id_categoria from tb_categoria
                                    WHERE login = %s
                                   
                                         """,

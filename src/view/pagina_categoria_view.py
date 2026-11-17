@@ -67,13 +67,18 @@ class CategoriaView(ft.View):
 
         lista= Categoria.recuperar(self.dados_usuario["login"])
         self.lista_categorias.clear()
+    
 
         for categorias in lista:
-            print(categorias['categoria'])
-            self.lista_categorias.append(ft.Text(categorias['categoria']))
+            self.lista_categorias.append(ft.Container(content=ft.Row(alignment="CENTER",
+            controls= [ft.TextField(categorias['categoria'], border_color= "#000000", bgcolor="#e0e0e0", border_radius=20),
+                                                    ft.Row(controls=ft.Button( icon=ft.Icons.DELETE, on_click=lambda:self.excluir(categorias["id_categoria"])))])))
 
         self.pagina.update()
 
-
+    def excluir(self, palavra):
+        print(palavra)
+        Categoria.excluir(id_categoria= palavra)
+        self.historico()
 
        
