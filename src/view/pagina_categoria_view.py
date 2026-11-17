@@ -9,7 +9,9 @@ class CategoriaView(ft.View):
         
         self.vertical_alignment="CENTER"
                 
-        titulo= ft.Text(value="Cadastre a sua Categoria",weight="bold",font_family="arial")
+        titulo= ft.Text(value="Cadastre aqui a sua Categoria",weight="bold",font_family="arial",size=20)
+
+        subtitulo = ft.Text(value="Categorias existentes:", weight="bold",font_family="arial")
 
         # Centraliza os componentes horizontalmente
         self.horizontal_alignment = ft.CrossAxisAlignment.CENTER
@@ -27,7 +29,7 @@ class CategoriaView(ft.View):
                                     )
 
 
-        self.controls=[titulo,campo_categoria,botao_salvar]
+        self.controls=[titulo,campo_categoria,botao_salvar,subtitulo]
         
         self.title = "feito por julia"
         
