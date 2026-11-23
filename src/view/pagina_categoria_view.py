@@ -56,8 +56,10 @@ class CategoriaView(ft.View):
 
         if resultado:
             self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Cadastro da categoria efetuado com sucesso!!!",color="#000000"),bgcolor="#c0fabe"))
-
+            self.campo_categoria.value = ""
+            
             self.historico()
+            
 
         else:
             self.pagina.show_dialog(ft.SnackBar(content=ft.Text("Erro ao cadastrar a categoria",color="#000000"),bgcolor="#fabebe"))
@@ -81,4 +83,4 @@ class CategoriaView(ft.View):
         Categoria.excluir(id_categoria= palavra)
         self.historico()
 
-       
+             

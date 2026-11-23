@@ -23,17 +23,20 @@ def main(pagina:ft.Page):
    def navegacao(componente):
       item_clicado = componente.control.selected_index
       if item_clicado == 0:
+         pagina.navigate("/principal")
+      if item_clicado == 1:
          pagina.navigate("/categoria")
-      elif item_clicado == 1:
-         pagina.navigate("/adicionardespesas")
       elif item_clicado == 2:
-         pagina.navigate("/despesastotais")
+         pagina.navigate("/adicionardespesas")
       elif item_clicado == 3:
-         pagina.navigate("/despesascategoria")
+         pagina.navigate("/despesastotais")
       elif item_clicado == 4:
+         pagina.navigate("/despesascategoria")
+      elif item_clicado == 5:
          pagina.navigate("/login")
 
    barra_navegacao= ft.NavigationBar(destinations=[
+                              ft.NavigationBarDestination(icon=ft.Icons.HOME, label="Principal"),
                               ft.NavigationBarDestination(icon=ft.Icons.CATEGORY_OUTLINED, label="Categoria"),
                               ft.NavigationBarDestination(icon=ft.Icons.ADD_CIRCLE_OUTLINE, label="Adicionar Despesas"),
                               ft.NavigationBarDestination(icon=ft.Icons.RECEIPT_LONG_OUTLINED, label="Todas Despesas"),
@@ -44,6 +47,7 @@ def main(pagina:ft.Page):
  
    def roteamento(e= None):
       pagina.views.clear()
+
       if pagina.route == "/cadastro":
          tela_cadastro_usuario = CadastroUsuarioView(pagina)
          pagina.views.append(tela_cadastro_usuario)
