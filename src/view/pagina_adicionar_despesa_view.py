@@ -77,7 +77,7 @@ class AdicionarDespesasView(ft.View):
       valor = self.campo_valor.value
       data= self.campo_data.value
       id_categoria =self.campo_categorias.value
-      data_convertida = datetime.strptime(data, "%d/%m/%Y").date()
+      data_convertida = str(datetime.strptime(data, "%d/%m/%Y").date())
       resultado = Despesa().incluir(id_categoria,descricao,valor,data_convertida,self.login)
 
       if resultado:
