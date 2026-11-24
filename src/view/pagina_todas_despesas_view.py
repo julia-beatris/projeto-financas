@@ -24,13 +24,6 @@ class TodasDespesasView(ft.View):
         self.bgcolor = "#e8ecf0"
 
 
-        botao_mostrar= ft.Button(content = "Mostrar",
-                                            bgcolor= "#c0c0c0",
-                                            color= "#000000",
-                                            width=200, 
-                                            on_click=self.mostrar_despesas
-                                            )
-
         self.lista_despesas =[]
         tabela_despesas = ft.DataTable(columns=[ft.DataColumn(label="Usuario"),
                                                 ft.DataColumn(label="Categoria"),
@@ -40,11 +33,11 @@ class TodasDespesasView(ft.View):
                                                 ft.DataColumn(label= "Excluir despesa")],
                                                 rows= self.lista_despesas)
 
-        
-        self.controls=[titulo,botao_mostrar,tabela_despesas]
+        self.mostrar_despesas()
+        self.controls=[titulo,tabela_despesas]
 
     def mostrar_despesas (self):
-        self.lista_despesas.clear
+        self.lista_despesas.clear()
         despesas =Despesa().recuperar_todos(self.login)
 
         for despesas in despesas:
