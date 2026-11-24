@@ -18,7 +18,6 @@ CREATE TABLE if not exists tb_categoria (
 CREATE TABLE if not exists tb_despesa (
  id_despesa INT NOT NULL PRIMARY KEY auto_increment,
  data DATE,
- hora TIME(4),
  valor FLOAT(4),
  descricao VARCHAR(50),
  tipo VARCHAR(15),
