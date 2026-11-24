@@ -37,7 +37,7 @@ class Despesa:
             return False
         try:
             cursor.execute("""
-                SELECT tb_despesa.id_categoria, descricao, valor, data,tb_despesa.login, tb_categoria.categoria
+                SELECT tb_despesa.id_categoria, descricao, valor, data,tb_despesa.login, tb_categoria.categoria,id_despesa
                 FROM tb_despesa
                 inner join tb_categoria on tb_categoria.id_categoria = tb_despesa.id_categoria
                 WHERE tb_categoria.login =%s;

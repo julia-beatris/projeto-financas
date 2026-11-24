@@ -36,13 +36,15 @@ class TodasDespesasView(ft.View):
                                                 ft.DataColumn(label="Categoria"),
                                                 ft.DataColumn(label="Descrição"),
                                                 ft.DataColumn(label="Valor"),
-                                                ft.DataColumn(label="Data")],
+                                                ft.DataColumn(label="Data"),
+                                                ft.DataColumn(label= "Excluir despesa")],
                                                 rows= self.lista_despesas)
 
         
         self.controls=[titulo,botao_mostrar,tabela_despesas]
 
     def mostrar_despesas (self):
+        self.lista_despesas.clear
         despesas =Despesa().recuperar_todos(self.login)
 
         for despesas in despesas:
@@ -53,11 +55,21 @@ class TodasDespesasView(ft.View):
                     ft.DataCell(ft.Text(despesas.get("descricao"))),
                     ft.DataCell(ft.Text(despesas.get("valor"))),
                     ft.DataCell(ft.Text(datetime.strftime(despesas.get("data"), "%d/%m/%Y"))),
+                    ft.DataCell(ft.IconButton(icon=ft.Icons.DELETE,
+                                              key=despesas.get("id_despesa"),
+                                              on_click= self.excluir)),
                 ] )
 
             self.lista_despesas.append(linha)
 
         self.pagina.update()
+
+
+    def excluir(self,botao):
+        id_despesa = botao.control.key
+        Despesa.excluir(id_despesa)
+        self.mostrar_despesas()
+    
             
 
 
