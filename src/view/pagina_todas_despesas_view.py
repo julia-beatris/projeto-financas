@@ -9,13 +9,10 @@ class TodasDespesasView(ft.View):
         
         self.vertical_alignment="CENTER"
                 
-        titulo= ft.Text(value="VOU FORMATAR DEPOIS (PAGINA TODAS AS DESPESAS)",weight="bold",font_family="arial")
+        titulo= ft.Text(value="Aqui está todas as suas Despesas:",weight="bold",font_family="arial")
 
         # Centraliza os componentes horizontalmente
-        self.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-                
-                    
-                
+        self.horizontal_alignment = ft.CrossAxisAlignment.CENTER 
         
         self.title = "feito por julia"
         
@@ -23,3 +20,12 @@ class TodasDespesasView(ft.View):
         self.bgcolor = "#e8ecf0"
 
         self.controls=[titulo]
+
+        lista_despesas =[]
+        tabela_despesas = ft.DataTable(columns=[ft.DataColumn(label="id da Despesa"),
+                                                ft.DataColumn(label="Descrição"),
+                                                ft.DataColumn(label="Valor"),
+                                                ft.DataColumn(label="Data"),
+                                                ft.DataColumn(label="Categoria")],
+                                                rows=[ft.DataRow()
+                                                ])
