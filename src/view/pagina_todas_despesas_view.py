@@ -33,10 +33,10 @@ class TodasDespesasView(ft.View):
 
         self.lista_despesas =[]
         tabela_despesas = ft.DataTable(columns=[ft.DataColumn(label="Usuario"),
+                                                ft.DataColumn(label="Categoria"),
                                                 ft.DataColumn(label="Descrição"),
                                                 ft.DataColumn(label="Valor"),
-                                                ft.DataColumn(label="Data"),
-                                                ft.DataColumn(label="Categoria")],
+                                                ft.DataColumn(label="Data")],
                                                 rows= self.lista_despesas)
 
         
@@ -49,10 +49,10 @@ class TodasDespesasView(ft.View):
             linha = ft.DataRow(
                 cells=[
                     ft.DataCell(ft.Text(despesas.get("login"))),
+                    ft.DataCell(ft.Text(despesas.get("categoria"))),
                     ft.DataCell(ft.Text(despesas.get("descricao"))),
                     ft.DataCell(ft.Text(despesas.get("valor"))),
                     ft.DataCell(ft.Text(datetime.strftime(despesas.get("data"), "%d/%m/%Y"))),
-                    ft.DataCell(ft.Text(despesas.get("id_categoria")))
                 ] )
 
             self.lista_despesas.append(linha)
